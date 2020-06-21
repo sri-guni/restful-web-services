@@ -1,6 +1,7 @@
 package com.sridhar.webservices.rest.restfulwebservices.user;
 
-import java.util.Date;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +10,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class User {
 	private Integer id;
+	
+	@Size(min=5, message="Name should be between 5 and 30 characters")
 	private String name;
+	
+	@Email(message="Invalid Email Format")
 	private String email;	
 }
