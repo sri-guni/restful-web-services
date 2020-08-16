@@ -3,6 +3,8 @@ package com.sridhar.webservices.rest.restfulwebservices.user;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,5 +17,9 @@ public class User {
 	private String name;
 	
 	@Email(message="Invalid Email Format")
-	private String email;	
+	private String email;
+	
+	// This field will not be included in JSON
+	@JsonIgnore
+	private String password;
 }
